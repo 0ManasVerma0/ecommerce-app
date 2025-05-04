@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {id: 4, name: "Product 4", price: 70.00}
     ];
 
-    const cart = [];
+    const cart =  [];
 
     products.forEach((product) => {
         const productDiv = document.createElement("div");
@@ -49,11 +49,12 @@ document.addEventListener("DOMContentLoaded", () => {
             cart.forEach((item, index) => {
                 totalPrice += item.price;
                 const cartItem = document.createElement("div");
+                cartItem.classList.add("product");
                 cartItem.innerHTML = `
                 ${item.name} - $${item.price.toFixed(2)}
                 `
                 cartItems.appendChild(cartItem);
-                totalPriceDisplay.textContent = `${totalPrice.toFixed(2)}`
+                totalPriceDisplay.textContent = `$ ${totalPrice.toFixed(2)}`
             })
         } else {
             emptyCartMsg.classList.remove("hidden");
@@ -67,3 +68,6 @@ document.addEventListener("DOMContentLoaded", () => {
         renderCart();
       });
 })
+
+// Task 1 --> make a remove button in products inside cart to remove from cart 
+// Task 2 --> make a localStorage
