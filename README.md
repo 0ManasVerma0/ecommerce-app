@@ -6,11 +6,6 @@ A simple and interactive e-commerce shopping cart built using HTML, CSS, and Jav
 
 ▶️ **Try it here:** [0manasverma0.github.io/ecommerce-app](https://0manasverma0.github.io/ecommerce-app/)
 
-## 📸 Preview
-
-![E-commerce App Demo](demo.gif)  
-*Note: Add a screenshot or screen recording here to better showcase the UI.*
-
 ## 🚀 Features
 
 - ✅ Browse a list of products
