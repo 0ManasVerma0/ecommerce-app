@@ -39,6 +39,11 @@ document.addEventListener("DOMContentLoaded", () => {
         renderCart();
     }
 
+    function removeCart(product){
+        cart.pop(product);
+        renderCart();
+    }
+
     function renderCart(){
         cartItems.innerText = "";
         let totalPrice = 0;
@@ -52,6 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 cartItem.classList.add("product");
                 cartItem.innerHTML = `
                 ${item.name} - $${item.price.toFixed(2)}
+                <button remove-id = "${cart.id}">Remove</button>
                 `
                 cartItems.appendChild(cartItem);
                 totalPriceDisplay.textContent = `$ ${totalPrice.toFixed(2)}`
@@ -62,10 +68,18 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+    cartItems.addEventListener("click", (e) => {
+        if (e.target.tagName === "BUTTON"){
+            const removeId = parseInt(e.target.getAttribute("remove-id"));
+            const remove = cart.find((p) => p.id == removeId);
+            removeCart(remove);
+        }
+    })
+
     checkoutBtn.addEventListener("click", () => {
         cart.length = 0;
         alert("Checkout successfully");
         renderCart();
       });
 })
-
+// Task 2 --> make a localStorage
