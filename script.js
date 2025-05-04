@@ -69,5 +69,3 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 })
 
-// Task 1 --> make a remove button in products inside cart to remove from cart 
-// Task 2 --> make a localStorage
