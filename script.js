@@ -14,8 +14,11 @@ document.addEventListener("DOMContentLoaded", () => {
         {id: 4, name: "Product 4", price: 70.00}
     ];
 
-    const cart =  [];
+    let cart = JSON.parse(localStorage.getItem("saved")) || [];
 
+    renderCart();
+
+    //This displays products on products panel
     products.forEach((product) => {
         const productDiv = document.createElement("div");
         productDiv.classList.add("product");
@@ -34,16 +37,21 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     })
 
+    //This add products in cart
     function addtoCart(product){
         cart.push(product);
+        saveProgress();
         renderCart();
     }
 
+    //This removes products from cart
     function removeCart(product){
         cart.pop(product);
+        saveProgress();
         renderCart();
     }
 
+    //This renders products and displays it in cart
     function renderCart(){
         cartItems.innerText = "";
         let totalPrice = 0;
@@ -78,8 +86,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     checkoutBtn.addEventListener("click", () => {
         cart.length = 0;
+        saveProgress();
         alert("Checkout successfully");
         renderCart();
       });
+
+    function saveProgress(){
+        localStorage.setItem("saved", JSON.stringify(cart))
+    }
 })
 // Task 2 --> make a localStorage
