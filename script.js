@@ -95,4 +95,3 @@ document.addEventListener("DOMContentLoaded", () => {
         localStorage.setItem("saved", JSON.stringify(cart))
     }
 })
-// Task 2 --> make a localStorage
